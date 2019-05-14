@@ -15,13 +15,19 @@ namespace SoloPoker
         [STAThread]
         static void Main()
         {
+
+            Debug.WriteLine("Start");
+
+            Deck temp_deck = new Deck(true);
+
+            Debug.WriteLine(temp_deck);
+
+
+
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-
-
-            Card temp = new Card(10, "Hearts");
-            Debug.Print(temp.ToString());
+            Application.Run(new Form1());     
         }
     }
 }

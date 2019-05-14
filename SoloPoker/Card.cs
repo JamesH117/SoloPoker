@@ -11,6 +11,14 @@ namespace SoloPoker
         private int value;
         private string suit;
 
+        IDictionary<int, string> face_dict = new Dictionary<int, string>()
+                                            {
+                                                {1,"Ace"},
+                                                {11,"Jack"},
+                                                {12, "Queen"},
+                                                {13,"King"}
+                                            };
+
         public Card(int value, string suit)
         {
             this.value = value;
@@ -34,7 +42,14 @@ namespace SoloPoker
 
         public override string ToString()
         {
+            if (value == 0)
+                return "Joker";
+
+            if (value >= 11 || value == 1)
+                return String.Format("{0} of {1}", face_dict[value], suit);
+
             return String.Format("{0} of {1}", value, suit);
+
         }
     }
 }
